@@ -45,4 +45,8 @@ public function sendPasswordResetNotification($token) {
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
 }
