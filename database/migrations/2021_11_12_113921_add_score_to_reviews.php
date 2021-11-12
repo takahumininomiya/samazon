@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCloumnsToUsers extends Migration
+class AddScoreToReviews extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class AddCloumnsToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('postal_code')->default('');
-            $table->text('address')->default('');
-            $table->string('phone')->default('');
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->integer('score')->unsigned()->default(0);
         });
     }
 
@@ -27,7 +25,7 @@ class AddCloumnsToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('reviews', function (Blueprint $table) {
             //
         });
     }
